@@ -13,25 +13,25 @@ const pskKey = '0000'
 // Set up the server
 app.get('/:intent', function (req, res) {
 
-	// Get the intent
-	var intent = req.params.intent;
+    // Get the intent
+    var intent = req.params.intent;
 
-  	// Confirm the intent
-  	console.log('Running ' + intent);
+    // Confirm the intent
+    console.log('Running ' + intent);
 
-  	// Call the Bravia function.
-  	bravia(tvIP, pskKey, function(client) {
+    // Call the Bravia function.
+    bravia(tvIP, pskKey, function (client) {
 
-      // Call a command
-  	  client.exec(intent);
+        // Call a command
+        client.exec(intent);
 
-      // Send back the ok status.
-      res.sendStatus(200);
+        // Send back the ok status.
+        res.sendStatus(200);
 
-  	});
+    });
 });
 
 // Set up the port listener
 app.listen(port, function () {
-  console.log('Bravia listening on port ' + port + '!');
+    console.log('Bravia listening on port ' + port + '!');
 });
